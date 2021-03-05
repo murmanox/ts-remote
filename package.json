@@ -1,0 +1,22 @@
+{
+  "name": "@rbxts/ts-remote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "out/init.lua",
+  "typings": "typings/index.d.ts",
+  "files": ["out", "typings"],
+  "scripts": {
+    "prepublishOnly": "rbxtsc"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "types": "typings/index.d.ts",
+  "devDependencies": {
+    "@rbxts/compiler-types": "^1.0.0-beta.11.1",
+    "@rbxts/types": "^1.0.459"
+  }
+}
