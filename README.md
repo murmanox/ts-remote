@@ -28,8 +28,8 @@ ShootRemote.onClientEvent.Connect((shoot_origin, weapon, shooter) => {
 ShootRemote.fireServer(new CFrame());
 
 // remote function wrapper
-const ShootRemote = new NetworkEvent<GetLevel>("GetLevel");
-const level = ShootRemote.invokeServer("woodcutting")
+const GetLevel = new NetworkEvent<GetLevel>("GetLevel");
+const level = GetLevel.invokeServer("woodcutting")
 ```
 
 Server:
@@ -41,8 +41,8 @@ ShootRemote.onServerEvent.Connect((player, shoot_origin) => {
 });
 
 //remote function wrapper
-const ShootRemote = new NetworkEvent<GetLevel>("GetLevel");
-ShootRemote.onServerInvoke = (player, skill) => {
+const GetLevel = new NetworkEvent<GetLevel>("GetLevel");
+GetLevel.onServerInvoke = (player, skill) => {
     // return player's skill level
 }
 ```
