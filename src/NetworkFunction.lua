@@ -65,7 +65,7 @@ function NetworkFunction:invokeClient(...)
 		return
 	end
 	
-	self.instance:InvokeClient(...)
+	return self.instance:InvokeClient(...)
 end
 
 function NetworkFunction:invokeServer(...)
@@ -74,7 +74,7 @@ function NetworkFunction:invokeServer(...)
 		return
 	end
 	
-	self.instance:InvokeServer(...)
+	return self.instance:InvokeServer(...)
 end
 
 return NetworkFunction
