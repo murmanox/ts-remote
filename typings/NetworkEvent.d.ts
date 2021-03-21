@@ -1,12 +1,11 @@
 import { PrependPlayerToArgs, FunctionArguments } from "./function-types";
 
-export declare const NetworkEvent: NetworkEventConstructor;
-export interface EventParams {
+interface EventParams {
     onClientEvent: (...args: any[]) => any;
     onServerEvent: (...args: any[]) => any;
 }
 
-declare interface NetworkEvent<T extends EventParams> {
+interface NetworkEvent<T extends EventParams> {
     onClientEvent: RBXScriptSignal<T["onClientEvent"]>;
     onServerEvent: RBXScriptSignal<PrependPlayerToArgs<T["onServerEvent"]>>;
 
@@ -15,6 +14,6 @@ declare interface NetworkEvent<T extends EventParams> {
     fireServer(...args: FunctionArguments<T["onServerEvent"]>): void;
 }
 
-declare interface NetworkEventConstructor {
+export interface NetworkEventConstructor {
     new <T extends EventParams>(name: string): NetworkEvent<T>;
 }

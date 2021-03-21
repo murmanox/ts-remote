@@ -1,12 +1,11 @@
-import { PrependPlayerToArgs, FunctionArguments, ReturnType } from "./function-types";
+import { PrependPlayerToArgs } from "./function-types";
 
-export declare const NetworkFunction: NetworkFunctionConstructor;
-export interface FunctionParams {
+interface FunctionParams {
     onClientInvoke?: (...args: any[]) => any;
     onServerInvoke: (...args: any[]) => any;
 }
 
-declare interface NetworkFunction<T extends FunctionParams> {
+interface NetworkFunction<T extends FunctionParams> {
     /**
      * Don't use this. It's an anti-pattern.
      */
@@ -25,6 +24,6 @@ declare interface NetworkFunction<T extends FunctionParams> {
     readonly invokeClient: PrependPlayerToArgs<T["onClientInvoke"]>;
 }
 
-declare interface NetworkFunctionConstructor {
+export interface NetworkFunctionConstructor {
     new <T extends FunctionParams>(name: string): NetworkFunction<T>;
 }

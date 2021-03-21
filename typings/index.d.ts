@@ -1,5 +1,5 @@
-import { NetworkEvent, EventParams as NetworkEventParams } from "./NetworkEvent";
-import { NetworkFunction, FunctionParams as NetworkFunctionParams } from "./NetworkFunction";
+import { NetworkEventConstructor } from "./NetworkEvent";
+import { NetworkFunctionConstructor } from "./NetworkFunction";
 
-export as namespace TSRemote;
-export { NetworkEvent, NetworkFunction, NetworkEventParams, NetworkFunctionParams };
+export declare const NetworkEvent: NetworkEventConstructor;
+export declare const NetworkFunction: NetworkFunctionConstructor;
