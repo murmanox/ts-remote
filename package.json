@@ -1,22 +1,22 @@
 {
   "name": "@rbxts/ts-remote",
   "version": "1.0.0",
-  "description": "",
+  "description": "Type safe remotes",
   "main": "out/init.lua",
-  "typings": "typings/index.d.ts",
-  "files": ["out", "typings"],
-  "scripts": {
-    "prepublishOnly": "rbxtsc"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "publishConfig": {
-    "access": "public"
-  },
   "types": "typings/index.d.ts",
+  "files": [
+    "out",
+    "typings"
+  ],
+  "license": "MIT",
+  "author": "Murmanox",
+  "homepage": "https://github.com/murmanox/ts-remote#readme",
   "devDependencies": {
-    "@rbxts/compiler-types": "^1.0.0-beta.11.1",
+    "@rbxts/compiler-types": "^1.0.0-types.0",
     "@rbxts/types": "^1.0.459"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/murmanox/ts-remote.git"
   }
 }
