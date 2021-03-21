@@ -40,7 +40,7 @@ ShootRemote.onServerEvent.Connect((player, shoot_origin) => {
     // do server stuff
 });
 
-remote function wrapper
+//remote function wrapper
 const ShootRemote = new NetworkEvent<GetLevel>("GetLevel");
 ShootRemote.onServerInvoke = (player, skill) => {
     // return player's skill level
