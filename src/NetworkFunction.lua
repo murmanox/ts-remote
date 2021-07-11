@@ -6,7 +6,17 @@ local IS_SERVER = RunService:IsServer()
 local NetworkFunction = {}
 NetworkFunction.__index = NetworkFunction
 
-local remote_folder = ReplicatedStorage:WaitForChild("Remote")
+local remote_folder
+if IS_CLIENT then
+	remote_folder = ReplicatedStorage:WaitForChild("Remote")
+else
+		remote_folder = ReplicatedStorage:FindFirstChild("Remote")
+	if not remote_folder then
+		remote_folder = Instance.new("Folder")
+		remote_folder.Name = "Remote"
+		remote_folder.Parent = ReplicatedStorage
+	end
+end
 
 function NetworkFunction.new(name)
 	local remote_function = remote_folder:FindFirstChild(name)
@@ -21,7 +31,7 @@ function NetworkFunction.new(name)
 		end
 	end
 	
-	local self =  setmetatable({
+	local self = setmetatable({
 		instance = remote_function,
 	}, NetworkFunction)
 	

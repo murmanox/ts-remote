@@ -6,7 +6,17 @@ local IS_SERVER = RunService:IsServer()
 local NetworkEvent = {}
 NetworkEvent.__index = NetworkEvent
 
-local remote_folder = ReplicatedStorage:WaitForChild("Remote")
+local remote_folder
+if IS_CLIENT then
+	remote_folder = ReplicatedStorage:WaitForChild("Remote")
+else
+		remote_folder = ReplicatedStorage:FindFirstChild("Remote")
+	if not remote_folder then
+		remote_folder = Instance.new("Folder")
+		remote_folder.Name = "Remote"
+		remote_folder.Parent = ReplicatedStorage
+	end
+end
 
 function NetworkEvent.new(name)
 	local remote_event = remote_folder:FindFirstChild(name)
